@@ -6,7 +6,7 @@ chai.use(sinonChai);
 sinonStubPromise(sinon);
 global.fetch = require('node-fetch');
 
-import { search, searchAlbuns, searchArtists, searchTracks, searchPlaylists} from '../src/main'
+import { search, searchAlbuns, searchArtists, searchTracks, searchPlaylists} from '../src/search'
 
 
 describe('Spotify Wrapper', () => {
