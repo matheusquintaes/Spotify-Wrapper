@@ -1,5 +1,6 @@
 # Spotify Wrapper
 
+[![Build Status](https://travis-ci.org/matheusquintaes/Spotify-Wrapper.svg?branch=master)](https://travis-ci.org/matheusquintaes/Spotify-Wrapper)
 A wrapper to work with the [Spotify Web API](https://developer.spotify.com/web-api/).
 
 ## Browser Support
