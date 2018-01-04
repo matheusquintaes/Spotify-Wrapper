@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -80,18 +80,17 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 
 
-var _search = __webpack_require__(1);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var TOKEN_API = 'BQCAO2hdwVlsbLbs6UYz91yxQNAWyEYdhmX8AIBpcI3Sz_adya0h1wziGkyMf90OpH3xeDc3tpwsbEwGRxQnRnSsWP6YPl6fjA_Q6UNvYy15tBjOAsT7p2qOE6VerBM-faju_02yAQ5O';
 
-var _album = __webpack_require__(2);
+var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
 
-module.exports = {
-  search: _search.search,
-  searchArtists: _search.searchArtists,
-  searchAlbums: _search.searchAlbums,
-  searchPlaylists: _search.searchPlaylists,
-  getAlbum: _album.getAlbum,
-  getAlbums: _album.getAlbums,
-  getAlbumsTracks: _album.getAlbumsTracks
+var HEADERS = exports.HEADERS = {
+  headers: {
+    Autorization: 'Bearer ' + TOKEN_API
+  }
 };
 
 /***/ }),
@@ -104,12 +103,55 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-/* global fetch */
+var toJSON = function toJSON(data) {
+  return data.json();
+};
+exports.default = toJSON;
 
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _search = __webpack_require__(3);
+
+var _album = __webpack_require__(4);
+
+module.exports = {
+  search: _search.search,
+  searchArtists: _search.searchArtists,
+  searchAlbums: _search.searchAlbums,
+  searchPlaylists: _search.searchPlaylists,
+  getAlbum: _album.getAlbum,
+  getAlbums: _album.getAlbums,
+  getAlbumsTracks: _album.getAlbumsTracks
+};
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.searchPlaylists = exports.searchTracks = exports.searchAlbuns = exports.searchArtists = exports.search = undefined;
+
+var _config = __webpack_require__(0);
+
+var _utils = __webpack_require__(1);
+
+var _utils2 = _interopRequireDefault(_utils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* global fetch */
 var search = exports.search = function search(query, type) {
-  return fetch('https://api.spotify.com/v1/search?q=' + query + '&type=' + type).then(function (data) {
-    return data.json();
-  });
+  return fetch(_config.API_URL + '/search?q=' + query + '&type=' + type, _config.HEADERS).then(_utils2.default);
 };
 
 var searchArtists = exports.searchArtists = function searchArtists(query) {
@@ -126,7 +168,7 @@ var searchPlaylists = exports.searchPlaylists = function searchPlaylists(query) 
 };
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -137,11 +179,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getAlbumTracks = exports.getAlbums = exports.getAlbum = undefined;
 
-var _config = __webpack_require__(3);
+var _config = __webpack_require__(0);
 
-var _config2 = _interopRequireDefault(_config);
-
-var _utils = __webpack_require__(4);
+var _utils = __webpack_require__(1);
 
 var _utils2 = _interopRequireDefault(_utils);
 
@@ -149,44 +189,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /* global fetch */
 var getAlbum = exports.getAlbum = function getAlbum(id) {
-  return fetch(_config2.default + '/albums/' + id).then(_utils2.default);
+  return fetch(_config.API_URL + '/albums/' + id, _config.HEADERS).then(_utils2.default);
 };
 
 var getAlbums = exports.getAlbums = function getAlbums(ids) {
-  return fetch(_config2.default + '/albums/?ids=' + ids).then(_utils2.default);
+  return fetch(_config.API_URL + '/albums/?ids=' + ids, _config.HEADERS).then(_utils2.default);
 };
 
 var getAlbumTracks = exports.getAlbumTracks = function getAlbumTracks(id) {
-  return fetch(_config2.default + '/albums/' + id).then(_utils2.default);
+  return fetch(_config.API_URL + '/albums/' + id, _config.HEADERS).then(_utils2.default);
 };
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var API_URL = 'https://api.spotify.com/v1';
-exports.default = API_URL;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var toJSON = function toJSON(data) {
-  return data.json();
-};
-exports.default = toJSON;
 
 /***/ })
 /******/ ]);
