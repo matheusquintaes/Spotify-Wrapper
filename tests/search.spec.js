@@ -60,12 +60,12 @@ describe('Spotify Wrapper', () => {
         const artists = search('Incubus', 'artist');
         expect(fetchStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=artist');
 
-        const albuns = search('Incubus', 'album');
+        const albums = search('Incubus', 'album');
         expect(fetchStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=album');
       })
 
       context('passing more than one type',() => {
-        const artistsAndAlbuns = search('Incubus', ['artist', 'album']);
+        const artistsAndAlbums = search('Incubus', ['artist', 'album']);
         expect(fetchStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=artist,album');
       });
     });
@@ -90,27 +90,15 @@ describe('Spotify Wrapper', () => {
     });
   });
 
-  describe('Search albuns', () => {
+  describe('Search albums', () => {
     it('shoud call fetch function', () =>{
-      const albuns = searchAlbums('Incubus');
+      const albums = searchAlbums('Incubus');
       expect(fetchStub).to.have.been.calledOnce;
     });
 
     it('shoud call fetch with the correct URL', () => {
-      const albuns = searchAlbums('Incubus');
-      expect(fetchStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=albuns');;
-    });
-  });
-
-  describe('Search albuns', () => {
-    it('shoud call fetch function', () =>{
-      const albuns = searchAlbums('Incubus');
-      expect(fetchStub).to.have.been.calledOnce;
-    });
-
-    it('shoud call fetch with the correct URL', () => {
-      const albuns = searchAlbums('Incubus');
-      expect(fetchStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=albuns');;
+      const albums = searchAlbums('Incubus');
+      expect(fetchStub).to.have.been.calledWith('https://api.spotify.com/v1/search?q=Incubus&type=album');;
     });
   });
 

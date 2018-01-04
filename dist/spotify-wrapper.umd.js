@@ -83,13 +83,13 @@ return /******/ (function(modules) { // webpackBootstrap
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var TOKEN_API = 'BQCAO2hdwVlsbLbs6UYz91yxQNAWyEYdhmX8AIBpcI3Sz_adya0h1wziGkyMf90OpH3xeDc3tpwsbEwGRxQnRnSsWP6YPl6fjA_Q6UNvYy15tBjOAsT7p2qOE6VerBM-faju_02yAQ5O';
+var TOKEN_API = 'BQCYSr3o5vYAdtrxrYLUW86CzZBiYqQjfWXyS8EK_2YhwUiwlO4hVZpnT2OFl876FiHPgpFuf2VdS0l58-UvXq0xLs084uE2Ievr39ODSp3HAyk91DW29BbwltvtKn-CGf2haVGCVhin';
 
 var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
 
 var HEADERS = exports.HEADERS = {
   headers: {
-    Autorization: 'Bearer ' + TOKEN_API
+    Authorization: '\'Bearer ' + TOKEN_API + '\''
   }
 };
 
@@ -139,7 +139,7 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.searchPlaylists = exports.searchTracks = exports.searchAlbuns = exports.searchArtists = exports.search = undefined;
+exports.searchPlaylists = exports.searchTracks = exports.searchAlbums = exports.searchArtists = exports.search = undefined;
 
 var _config = __webpack_require__(0);
 
@@ -155,16 +155,19 @@ var search = exports.search = function search(query, type) {
 };
 
 var searchArtists = exports.searchArtists = function searchArtists(query) {
-  search(query, 'artist');
+  return search(query, 'artist');
 };
-var searchAlbuns = exports.searchAlbuns = function searchAlbuns(query) {
-  search(query, 'albuns');
+
+var searchAlbums = exports.searchAlbums = function searchAlbums(query) {
+  return search(query, 'album');
 };
+
 var searchTracks = exports.searchTracks = function searchTracks(query) {
-  search(query, 'track');
+  return search(query, 'track');
 };
+
 var searchPlaylists = exports.searchPlaylists = function searchPlaylists(query) {
-  search(query, 'playlist');
+  return search(query, 'playlist');
 };
 
 /***/ }),

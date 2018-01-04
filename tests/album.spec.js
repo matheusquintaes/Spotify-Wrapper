@@ -1,5 +1,5 @@
 //getAlbum
-//getAlbuns
+//getAlbums
 //getAlbumTrakcs
 
 import chai, { expect } from 'chai';
