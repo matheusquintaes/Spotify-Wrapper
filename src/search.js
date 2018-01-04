@@ -8,7 +8,7 @@ export const search = (query, type) =>
 export const searchArtists = (query) => {
   search(query, 'artist');
 };
-export const searchAlbuns = (query) => {
+export const searchAlbums = (query) => {
   search(query, 'albuns');
 };
 export const searchTracks = (query) => {
