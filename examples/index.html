@@ -11,17 +11,21 @@
 <script src="../dist/spotify-wrapper.umd.js"></script>
 
 <script>
-  const albums = spotifyWrapper.searchAlbums('Incubus');
-  const albumsEl = document.getElementById('albums');
-  console.log(spotifyWrapper);
-  console.log(albums);
-  albums.then(data => {
-      markup = data.albums.items.map(item =>
-        `<img src='${item.images[0].url}' alt='${item.name}' />`
-      ).join('');
-      albumsEl.innerHTML = markup;
-    })
+    console.log(window);
 
-</script>
+    const spotify = new SpotifyWrapper({
+      token: 'BQCkFaCkoYdtYkPXqKIcEGVXwkDHiUz-O7atVghjKAdq_wicrI5IxIePeheTnRZsDRO57YvJirg8aV6ZrMePi085wX56lL3zabBoW6npzp9YiFm9Vp8rdMTRRV8AO4LScjJII7B6M99MMNQ'
+    })
+    const albums = spotify.search.albums('Soundgarden');
+    const albumsEl = document.getElementById('albums');
+    albums
+      .then(data => {
+        markup = data.albums.items.map(item =>
+          `<img src='${item.images[0].url}' alt='${item.name}' />`
+        ).join('');
+        albumsEl.innerHTML = markup;
+      })
+  </script>
+
 </body>
 </html>
