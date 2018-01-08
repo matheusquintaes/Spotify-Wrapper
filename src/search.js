@@ -10,4 +10,3 @@ export default function search() {
     playlists: searcher.bind(this, 'playlist'),
   };
 }
-

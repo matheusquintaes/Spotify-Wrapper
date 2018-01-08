@@ -120,8 +120,9 @@ var SpotifyWrapper = function () {
 
     this.apiURL = options.apiURL || _config2.default;
     this.token = options.token;
-    this.search = _search2.default.bind(this)();
+
     this.album = _album2.default.bind(this)();
+    this.search = _search2.default.bind(this)();
   }
 
   _createClass(SpotifyWrapper, [{

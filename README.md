@@ -20,7 +20,7 @@ This library depends on [fetch](https://fetch.spec.whatwg.org/) to make requests
 ## Installation
 
 ```sh
-$ npm install spotify-wrapper --save
+$ npm install spotify-wrapper-js --save
 ```
 
 ## How to use
@@ -29,16 +29,16 @@ $ npm install spotify-wrapper --save
 
 ```js
 // to import a specific method
-import { method } from 'spotify-wrapper';
+import { method } from 'spotify-wrapper-js';
 
 // to import everything
-import * as spotifyWrapper from 'spotify-wrapper';
+import * as spotifyWrapper from 'spotify-wrapper-js';
 ```
 
 ### CommonJS
 
 ```js
-var spotifyWrapper = require('spotify-wrapper');
+var spotifyWrapper = require('spotify-wrapper-js');
 ```
 
 ### UMD in Browser

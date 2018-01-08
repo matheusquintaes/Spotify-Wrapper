@@ -9,8 +9,9 @@ export default class SpotifyWrapper {
   constructor(options) {
     this.apiURL = options.apiURL || API_URL;
     this.token = options.token;
-    this.search = search.bind(this)();
+
     this.album = album.bind(this)();
+    this.search = search.bind(this)();
   }
 
   request(url) {
