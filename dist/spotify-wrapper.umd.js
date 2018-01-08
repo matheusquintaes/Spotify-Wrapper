@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["spotifyWrapper"] = factory();
+		exports["SpotifyWrapper"] = factory();
 	else
-		root["spotifyWrapper"] = factory();
+		root["SpotifyWrapper"] = factory();
 })(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -91,7 +91,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* global fetch */
+
 
 var _search = __webpack_require__(2);
 
@@ -102,6 +103,8 @@ var _album = __webpack_require__(3);
 var _album2 = _interopRequireDefault(_album);
 
 var _config = __webpack_require__(4);
+
+var _config2 = _interopRequireDefault(_config);
 
 var _utils = __webpack_require__(5);
 
@@ -115,7 +118,7 @@ var SpotifyWrapper = function () {
   function SpotifyWrapper(options) {
     _classCallCheck(this, SpotifyWrapper);
 
-    this.apiURL = options.apiURL || _config.API_URL;
+    this.apiURL = options.apiURL || _config2.default;
     this.token = options.token;
     this.search = _search2.default.bind(this)();
     this.album = _album2.default.bind(this)();
@@ -163,20 +166,6 @@ function search() {
   };
 }
 
-// import { API_URL, HEADERS } from './config';
-// import toJSON from './utils';
-
-// export const search = (query, type) =>
-//   fetch(`${API_URL}/search?q=${query}&type=${type}`, HEADERS).then(toJSON);
-
-// export const searchArtists = query => search(query, 'artist');
-
-// export const searchAlbums = query => search(query, 'album');
-
-// export const searchTracks = query => search(query, 'track');
-
-// export const searchPlaylists = query => search(query, 'playlist');
-
 /***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -214,9 +203,8 @@ function album() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var TOKEN_API = 'BQCYSr3o5vYAdtrxrYLUW86CzZBiYqQjfWXyS8EK_2YhwUiwlO4hVZpnT2OFl876FiHPgpFuf2VdS0l58-UvXq0xLs084uE2Ievr39ODSp3HAyk91DW29BbwltvtKn-CGf2haVGCVhin';
-
-var API_URL = exports.API_URL = 'https://api.spotify.com/v1';
+var API_URL = 'https://api.spotify.com/v1';
+exports.default = API_URL;
 
 /***/ }),
 /* 5 */
